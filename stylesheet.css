@@ -1,0 +1,393 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-size: contain;
+  width: 100%;
+  background-attachment: scroll;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+}
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ background layers ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #669fd5;
+}
+
+.background-layer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transition: none;
+}
+
+.background-layer img.active {
+  opacity: 1;
+  transition: opacity 0.8s ease; 
+}
+
+.background-layer img:first-child {
+  opacity: 1;
+}
+
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ fonts ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+@font-face {
+  font-family: "clubbed to life";
+  src: url("/fonts/ClubbedToLife.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "alte haas grotesk bold";
+  src: url("/fonts/AlteHaasGroteskBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "alte haas grotesk regular";
+  src: url("/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+}
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ header ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+.header {
+  width: 100vw;
+  height:auto;
+  margin-top: 3vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26vw;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(35, 104, 165, .5) 30%,
+    rgba(35, 104, 165, .5) 70%,
+    transparent 100%
+  );
+}
+
+.subtitle-text {
+  font-family: "clubbed to life";
+  color: white;
+  font-size: 28px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 5px;
+}
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ spin ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+.orbit-container {
+  width: 40vw;
+  height: 40vw; 
+  margin: 0 auto;
+  position: relative;
+}
+
+.orbit-ring {
+  width: 100%;
+  height: 100%;
+  animation: spin 20s linear infinite;
+  display: block;
+}
+
+.orbit-ring svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.orbit-gif {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%; 
+  height: 35%;
+  object-fit: contain;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ section header ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+
+.section-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  margin-top: 8vh;
+  margin-bottom: 0vh;
+}
+
+.section-line {
+  flex: 1;
+  height: 3px;
+  background-color: white;
+}
+
+.section-line.short {
+  flex: 0 0 200px;
+}
+
+.section-title {
+  font-family: "clubbed to life";
+  letter-spacing: 1px;
+  color: white;
+  font-size: 62px;
+  white-space: nowrap;
+}
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ project section ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+.project-slide {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.project-slide.active {
+  display: flex;
+}
+
+.project-hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.project-layout {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10vw;
+  box-sizing: border-box;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 2vh;
+  z-index: 2;
+  width: 40vw;
+  padding-top: 10vh;
+  padding-bottom: 4vh;
+}
+
+.project-title {
+  font-family: "clubbed to life";
+  font-weight: normal;
+  font-size: 5vw;
+  letter-spacing: 2px;
+  color: white;
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.project-subtitle {
+  font-family: "alte haas grotesk regular";
+  font-size: 1vw;
+  color: white;
+  margin: 0;
+  line-height: 1.4;
+  margin-bottom: 15vh;
+}
+
+.explore-row {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.explore-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  color: white;
+  font-family: "clubbed to life";
+  font-weight: normal;
+  font-size: 2vw;
+  letter-spacing: 1px;
+  padding: 1vh 2vw;
+  padding-top: .5vh;
+  padding-bottom: 1vh;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: rgba(255, 255, 255, .2);
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 5vw;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.arrow:hover {
+  opacity: 0.7;
+}
+
+.arrow-left {
+  color: white;
+  position: absolute;
+  left: 1vw;
+}
+
+.arrow-right {
+  color: #2368a5;
+  position: absolute;
+  right: 1vw;
+}
+
+.project-image {
+  width: 35vw;
+  height: 30vw;
+  flex-shrink: 0;
+  margin-right: 5vw;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  padding: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 4vh;
+}
+
+.project-year {
+  font-family: "clubbed to life";
+  font-weight: normal;
+  font-size: 2vw;
+  color: white;
+  margin: 0;
+  padding-left: 10vw;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.project-tags {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(35, 104, 165, .5) 20%,
+    rgba(35, 104, 165, .5) 100%,
+    transparent 0%
+  );
+  padding: 0 5vw;
+}
+
+.project-tags span {
+  font-family: "clubbed to life";
+  color: white;
+  font-size: 1vw;
+  letter-spacing: 0.1vh;
+}
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ carousel ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 2vh 0;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 15vw;
+  height: 10vw;
+  outline: 3px solid white;
+  cursor: pointer;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
