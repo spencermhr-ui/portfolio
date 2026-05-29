@@ -6,65 +6,78 @@ const bgA = document.getElementById('bg-a')
 const bgB = document.getElementById('bg-b')
 let activeBg = bgA
 
-// clone items for infinite loop
 const originalItems = Array.from(document.querySelectorAll('.carousel-item'))
 const totalOriginal = originalItems.length
 
-// prepend and append clones
-originalItems.forEach(item => {
-  const cloneEnd = item.cloneNode(true)
-  const cloneStart = item.cloneNode(true)
-  cloneEnd.classList.add('clone')
-  cloneStart.classList.add('clone')
-  carouselTrack.appendChild(cloneEnd)
-  carouselTrack.insertBefore(cloneStart, carouselTrack.firstChild)
+// clone full set before and after
+const beforeClones = originalItems.map(item => {
+  const clone = item.cloneNode(true)
+  clone.classList.add('clone')
+  clone.removeAttribute('data-index')
+  return clone
+})
+
+const afterClones = originalItems.map(item => {
+  const clone = item.cloneNode(true)
+  clone.classList.add('clone')
+  clone.removeAttribute('data-index')
+  return clone
+})
+
+// insert before clones in reverse so they appear in correct order
+beforeClones.slice().reverse().forEach(clone => {
+  carouselTrack.insertBefore(clone, carouselTrack.firstChild)
+})
+
+// append after clones in normal order
+afterClones.forEach(clone => carouselTrack.appendChild(clone))
+
+// click handlers — index i matches the original project index
+beforeClones.forEach((clone, i) => {
+  clone.addEventListener('click', () => goToProject(i))
+})
+afterClones.forEach((clone, i) => {
+  clone.addEventListener('click', () => goToProject(i))
 })
 
 function getAllItems() {
-  return Array.from(document.querySelectorAll('.carousel-item'))
+  return Array.from(carouselTrack.querySelectorAll('.carousel-item'))
 }
 
+let virtualIndex = 0
+
 function centerCarousel(animate = true) {
-  const items = getAllItems()
-  const itemWidth = items[0].getBoundingClientRect().width
+  const itemWidth = originalItems[0].getBoundingClientRect().width
   const gap = 3
   const centerOffset = (window.innerWidth / 2) - (itemWidth / 2)
-  const translateX = centerOffset - (currentIndex + totalOriginal) * (itemWidth + gap)
-
+  const translateX = centerOffset - (virtualIndex + totalOriginal) * (itemWidth + gap)
   carouselTrack.style.transition = animate ? 'transform 0.5s ease' : 'none'
   carouselTrack.style.transform = `translateX(${translateX}px)`
 }
 
 function updateActiveCarousel() {
-  const items = getAllItems()
-  items.forEach(item => item.classList.remove('active'))
-  items[currentIndex + totalOriginal].classList.add('active')
-}
-
-function handleLoopJump() {
-  const items = getAllItems()
-  const itemWidth = items[0].getBoundingClientRect().width
-  const gap = 3
-  const centerOffset = (window.innerWidth / 2) - (itemWidth / 2)
-  const translateX = centerOffset - (currentIndex + totalOriginal) * (itemWidth + gap)
-  carouselTrack.style.transition = 'none'
-  carouselTrack.style.transform = `translateX(${translateX}px)`
+  getAllItems().forEach(item => item.classList.remove('active'))
+  getAllItems()[currentIndex + totalOriginal].classList.add('active')
 }
 
 function goToProject(index) {
   slides[currentIndex].classList.remove('active')
-  currentIndex = (index + totalOriginal) % totalOriginal
+
+  const prevIndex = currentIndex
+  currentIndex = ((index % totalOriginal) + totalOriginal) % totalOriginal
+
+  let diff = currentIndex - prevIndex
+  if (diff > totalOriginal / 2) diff -= totalOriginal
+  if (diff < -totalOriginal / 2) diff += totalOriginal
+  virtualIndex += diff
+
   slides[currentIndex].classList.add('active')
 
   const bgSrc = slides[currentIndex].dataset.bg
   const inactiveBg = activeBg === bgA ? bgB : bgA
-
-  // set up inactive layer invisibly
   inactiveBg.style.transition = 'none'
   inactiveBg.style.opacity = '0'
   inactiveBg.src = bgSrc
-
-  // wait for image to load then fade in
   inactiveBg.onload = () => {
     inactiveBg.style.transition = 'opacity 0.8s ease'
     inactiveBg.style.opacity = '1'
@@ -75,7 +88,6 @@ function goToProject(index) {
 
   updateActiveCarousel()
   centerCarousel()
-  carouselTrack.addEventListener('transitionend', handleLoopJump, { once: true })
   alignArrows()
 }
 

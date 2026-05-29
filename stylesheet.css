@@ -28,6 +28,17 @@ html, body {
   background-color: #669fd5;
 }
 
+.background-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  z-index: 1;
+}
+
 .background-layer img {
   position: absolute;
   top: 0;
@@ -42,13 +53,12 @@ html, body {
 
 .background-layer img.active {
   opacity: 1;
-  transition: opacity 0.8s ease; 
+  transition: opacity 0.8s ease;
 }
 
 .background-layer img:first-child {
   opacity: 1;
 }
-
 
 
 /* ✦ ───────────────────────────────────────────── ✦
@@ -135,7 +145,7 @@ html, body {
 
 .orbit-gif {
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 35%; 
@@ -177,7 +187,7 @@ html, body {
   font-family: "clubbed to life";
   letter-spacing: 1px;
   color: white;
-  font-size: 62px;
+  font-size: 3.5vw;
   white-space: nowrap;
 }
 
@@ -222,7 +232,7 @@ html, body {
   gap: 2vh;
   z-index: 2;
   width: 40vw;
-  padding-top: 10vh;
+  padding-top: 8vh;
   padding-bottom: 4vh;
 }
 
@@ -243,7 +253,7 @@ html, body {
   color: white;
   margin: 0;
   line-height: 1.4;
-  margin-bottom: 15vh;
+  margin-bottom: 10vh;
 }
 
 .explore-row {
@@ -301,11 +311,11 @@ html, body {
 
 .project-image {
   width: 35vw;
-  height: 30vw;
+  height: 25vw;
   flex-shrink: 0;
   margin-right: 5vw;
   margin-bottom: 2vh;
-  margin-top: 2vh;
+  margin-top: 0vh;
   padding: 5vh;
   display: flex;
   justify-content: center;
@@ -390,4 +400,54 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ contact ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4vh 10vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  max-width: 35vw;
+  align-self: flex-start;
+}
+
+.contact-text {
+  font-family: "alte haas grotesk regular";
+  color: white;
+  font-size: 1.2vw;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  align-items: flex-end;
+}
+
+footer {
+  padding: 2vh 10vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-text {
+  font-family: "alte haas grotesk regular";
+  color: #669fd5;
+  font-size: 0.8vw;
+  margin: 0;
 }
