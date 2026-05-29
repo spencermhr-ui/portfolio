@@ -169,7 +169,7 @@ html, body {
   align-items: center;
   width: 100%;
   gap: 16px;
-  margin-top: 8vh;
+  margin-top: 5vh;
   margin-bottom: 0vh;
 }
 
@@ -185,7 +185,7 @@ html, body {
 
 .section-title {
   font-family: "clubbed to life";
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: white;
   font-size: 3.5vw;
   white-space: nowrap;
@@ -450,4 +450,113 @@ footer {
   color: #669fd5;
   font-size: 0.8vw;
   margin: 0;
+}
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ about page ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+.about-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #669fd5;
+  background-image: url('/main_assets/bg-about.jpg');
+}
+
+.about-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  z-index: 1;
+}
+
+.about-background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transition: none;
+}
+
+.about {
+  padding: 4vh 10vw;
+  box-sizing: border-box;
+}
+
+.about-layout {
+  display: flex;
+  align-items: center;
+  gap: 7vw;
+  margin-bottom: 6vh;
+  margin-top: 3vh;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3vh;
+  flex-shrink: 0;
+}
+
+.back-arrow {
+  color: white;
+  font-size: 2vw;
+  text-decoration: none;
+}
+
+.about-portrait {
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  margin-top:-7vh;
+  margin-left: 4vw;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  max-width: 45vw;
+}
+
+.about-text {
+  font-family: "alte haas grotesk regular";
+  color: white;
+  font-size: 1.1vw;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-text strong {
+  font-family: "alte haas grotesk bold";
+  font-weight: normal;
+}
+
+.about-links {
+  display: flex;
+  gap: 10vw;
+  justify-content: center;
+  margin-top: 10vh;
 }

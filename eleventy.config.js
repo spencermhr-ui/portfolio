@@ -7,4 +7,5 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("projects");
   eleventyConfig.addPassthroughCopy("about");
+  eleventyConfig.addPassthroughCopy("home");
 };
