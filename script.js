@@ -24,15 +24,12 @@ const afterClones = originalItems.map(item => {
   return clone
 })
 
-// insert before clones in reverse so they appear in correct order
 beforeClones.slice().reverse().forEach(clone => {
   carouselTrack.insertBefore(clone, carouselTrack.firstChild)
 })
 
-// append after clones in normal order
 afterClones.forEach(clone => carouselTrack.appendChild(clone))
 
-// click handlers — index i matches the original project index
 beforeClones.forEach((clone, i) => {
   clone.addEventListener('click', () => goToProject(i))
 })
@@ -92,6 +89,7 @@ function goToProject(index) {
 }
 
 function alignArrows() {
+  if (window.innerWidth <= 768) return
   setTimeout(() => {
     const btn = document.querySelector('.project-slide.active .explore-btn')
     const leftArrow = document.querySelector('.arrow-left')
@@ -133,4 +131,27 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
   centerCarousel(false)
   alignArrows()
+})
+
+// mobile swipe 
+let touchStartX = 0
+let touchEndX = 0
+
+const projectHero = document.querySelector('.project-hero')
+
+projectHero.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX
+})
+
+projectHero.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX
+  const diff = touchStartX - touchEndX
+
+  if (Math.abs(diff) > 50) { 
+    if (diff > 0) {
+      goToProject(currentIndex + 1) 
+    } else {
+      goToProject(currentIndex - 1) 
+    }
+  }
 })

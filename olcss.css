@@ -11,6 +11,7 @@ html, body {
   position: relative;
 }
 
+
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ background layers ⋯⋅๑┈·✦
 ✦ ───────────────────────────────────────────── ✦ */
@@ -23,7 +24,7 @@ html, body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: #4d81bd;
+  background-color: #669fd5;
 }
 
 .background-layer::after {
@@ -58,19 +59,6 @@ html, body {
 .background-layer img:first-child {
   opacity: 1;
 }
-
-@media (max-width: 1500px) {
-
-  .background-layer {
-    width:110%;
-  }
-
-}
-
-/* ✦ ───────────────────────────────────────────── ✦
-         ✦·┈๑⋅⋯ background gradients ⋯⋅๑┈·✦
-✦ ───────────────────────────────────────────── ✦ */
-
 
 
 /* ✦ ───────────────────────────────────────────── ✦
@@ -107,12 +95,16 @@ html, body {
   flex-direction: column;
 }
 
+.header img {
+  width: 100%;
+}
+
 .subtitle {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35vw;
+  width: 28vw;
   background: linear-gradient(
     to right,
     transparent 0%,
@@ -120,16 +112,18 @@ html, body {
     rgba(35, 104, 165, .5) 85%,
     transparent 100%
   );
+  margin-top: 1vh;
 }
 
 .subtitle-text {
   font-family: "clubbed to life";
   color: white;
-  font-size: calc(.5rem + 1vw);
+  font-size: 1.8rem;
   letter-spacing: .1rem;
   text-align: center;
   margin: 5px;
 }
+
 
 @media (max-width: 768px) {
 
@@ -157,8 +151,6 @@ html, body {
   height: 40vw; 
   margin: 0 auto;
   position: relative;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
 }
 
 .orbit-ring {
@@ -189,15 +181,6 @@ html, body {
   to { transform: rotate(-360deg); }
 }
 
-@media (max-width: 1500px) {
-
-  .orbit-container {
-    margin-top: 6vh;
-    margin-bottom: 7vh;
-  }
-  
-}
-
 @media (max-width: 768px) {
 
   .orbit-container {
@@ -208,7 +191,6 @@ html, body {
   }
   
 }
-
 
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ section header ⋯⋅๑┈·✦
@@ -299,20 +281,13 @@ html, body {
   white-space: nowrap;
 }
 
-.project-subtitle-box {
-  display: flex;
-  align-items: flex-start;
-  height: 10vh;
-  width: 20vw;
-  margin-bottom: 2vh;
-}
-
 .project-subtitle {
   font-family: "alte haas grotesk regular";
   font-size: 1rem;
   color: white;
   margin: 0;
   line-height: 1.4;
+  margin-bottom: 10vh;
 }
 
 .explore-row {
@@ -345,7 +320,7 @@ html, body {
 .arrow {
   background: none;
   border: none;
-  font-size: 60px;
+  font-size: 70px;
   cursor: pointer;
   transform: translateY(-50%);
   padding: 0;
@@ -353,7 +328,7 @@ html, body {
 }
 
 .arrow:hover {
-  font-size: 70px;
+  font-size: 80px;
   transition: font-size 0.3s ease;
   cursor: pointer;
 }
@@ -361,16 +336,16 @@ html, body {
 .arrow-left {
   color: white;
   position: absolute;
-  left: 2vw;
+  left: 1vw;
 }
 
 .arrow-right {
-  color: #4d81bd;
+  color: #2368a5;
   position: absolute;
-  right: 2vw;
+  right: 1vw;
 }
 
-.project-image a {
+.project-image {
   width: 35vw;
   height: 25vw;
   flex-shrink: 0;
@@ -381,11 +356,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform .2s;
-}
-
-.project-image a:hover {
-  transform: scale(1.1);
 }
 
 .project-image img {
@@ -435,62 +405,6 @@ html, body {
   letter-spacing: 0.1rem;
 }
 
-@media (max-width: 768px) {
-
-  .project-layout {
-    flex-direction: column;
-    padding: 0 6vw;
-  }
-
-  .project-info {
-    width: 100%;
-    padding-top: 3vh;
-    padding-bottom: 2vh;
-  }
-
-  .project-image a {
-    order: 3; 
-    width: calc(100% - 16vw);
-    height: 30vh;
-    padding: 0;
-    margin: 5vh 8vw;
-  }
-  
-  .project-subtitle-box {
-    height: 7vh;
-    width: 87vw;
-    margin-bottom: .5vh;
-  }
-
-  .explore-btn {
-    padding-top: .1vh;
-    padding-bottom: .2vh;
-    font-size: 1rem;
-  }
-
-  .arrow {
-    font-size: 50px;
-  }
-  
-  .arrow:hover {
-    font-size: 60px;
-  }
-
-  .arrow-left {
-    position: absolute !important;
-    top: 85vw !important;
-    left: 2vw !important;
-    transform: none !important;
-  }
-
-  .arrow-right {
-    position: absolute !important;
-    top: 85vw !important;
-    right: 2vw !important;
-    transform: none !important;
-  }
-
-}
 
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ carousel ⋯⋅๑┈·✦
@@ -522,15 +436,6 @@ html, body {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-@media (max-width: 768px) {
-
-  .carousel-item {
-    height:10vh;
-    width:25vw;
-  }
-  
 }
 
 /* ✦ ───────────────────────────────────────────── ✦
@@ -725,7 +630,7 @@ footer {
 
 aside.arrow-right {
   position: fixed;
-  right: 2vw;
+  right: 30px;
   top: 50vh;
   transform: translateY(-50%);
   z-index: 1000;
@@ -733,7 +638,7 @@ aside.arrow-right {
 
 aside.arrow-left {
   position: fixed;
-  left: 2vw;
+  left: 30px;
   top: 50vh;
   transform: translateY(-50%);
   z-index: 1000;
@@ -1131,6 +1036,3 @@ aside.arrow-left {
 
 
 
-@media (max-width: 768px) {
-
-}
