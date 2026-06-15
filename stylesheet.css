@@ -405,7 +405,7 @@ html, body {
 .project-year {
   font-family: "clubbed to life";
   font-weight: normal;
-  font-size: 2vw;
+  font-size: 2rem;
   color: white;
   margin: 0;
   padding-left: 10vw;
@@ -425,7 +425,8 @@ html, body {
     rgba(35, 104, 165, .5) 100%,
     transparent 0%
   );
-  padding: 0 5vw;
+  padding: 0 6vw;
+  text-align: right;
 }
 
 .project-tags span {
@@ -464,8 +465,9 @@ html, body {
 
   .explore-btn {
     padding-top: .1vh;
-    padding-bottom: .2vh;
+    padding-bottom: .3vh;
     font-size: 1rem;
+    border: 2px solid white;
   }
 
   .arrow {
@@ -488,6 +490,20 @@ html, body {
     top: 85vw !important;
     right: 2vw !important;
     transform: none !important;
+  }
+
+  .project-footer {
+    margin-top: 2vh;
+    height: 6vh;
+  }
+
+  .project-year {
+    font-size: 1rem;
+    padding-left: 6vw;
+  }
+
+  .project-tags {
+    padding: 0 3vw;
   }
 
 }
@@ -545,6 +561,7 @@ html, body {
   padding: 4vh 10vw;
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 32vh;
 }
 
 .contact-left {
@@ -553,6 +570,7 @@ html, body {
   gap: 5vh;
   max-width: 35vw;
   align-self: flex-start;
+  align-items: stretch;
 }
 
 .contact-text {
@@ -561,6 +579,10 @@ html, body {
   font-size: 1.2rem;
   line-height: 1.6;
   margin: 0;
+}
+
+.contact-about {
+  display: flex;
 }
 
 .contact-right {
@@ -579,13 +601,54 @@ footer {
 .footer-text {
   font-family: "alte haas grotesk regular";
   color: #669fd5;
-  font-size: 0.8vw;
+  font-size: 0.8rem;
   margin: 0;
 }
 
 .footer-text a {
   text-decoration: none;
 }
+
+
+@media (max-width: 768px) {
+
+  .contact {
+    flex-direction: column;
+    margin-top: -8vh;
+    padding: 4vh 6vw;
+    align-items: stretch; 
+  }
+
+  .contact-left {
+    max-width: 100%;
+    gap: 2vh;
+    padding: 0; 
+  }
+
+  .contact-about {
+    display: flex;
+    margin-top: 5vh;
+    padding: 0 15vw;
+  }
+
+  .contact-about .explore-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .contact-right {
+    margin-top: 2vh;
+    align-items: stretch;
+    gap: 2vh;
+    padding: 0 15vw; 
+  }
+
+  .contact-text {
+    font-size: 1rem;
+  }
+}
+
+
 
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ about page ⋯⋅๑┈·✦
@@ -636,7 +699,7 @@ footer {
 
 .back-arrow {
   color: white;
-  font-size: 2vw;
+  font-size: 2rem;
   text-decoration: none;
 }
 
@@ -667,7 +730,7 @@ footer {
 .about-text {
   font-family: "alte haas grotesk regular";
   color: white;
-  font-size: 1.1vw;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
 }
@@ -681,8 +744,51 @@ footer {
   display: flex;
   gap: 5vw;
   justify-content: center;
-  margin-top: 5vh;
+  margin-top: 10vh;
 }
+
+
+@media (max-width: 768px) {
+
+  .about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 25%, #ffffff 0%, #81cee0 20%, #6CAFD2 30%, #4d81bd 70%);
+  }
+  
+  .about {
+    padding: 4vh 6vw;
+  }
+  
+  .about-layout {
+    flex-direction: column;
+  }
+
+  .about-portrait {
+    width: 80vw;
+    height: 80vw;
+    margin-left: 0;
+  }
+
+  .about-right {
+    max-width: 88vw;
+    margin-left: 0vw;
+  }
+
+  .about-links {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0vh;
+    margin-bottom: 10vh;
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+}
+
 
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ project page ⋯⋅๑┈·✦
@@ -1091,11 +1197,6 @@ aside.arrow-left {
   gap: 1vh;
 }
 
-/* ── Top & Home buttons ── */
-
-
-
-
 
 /* ── Other projects ── */
 
@@ -1132,5 +1233,78 @@ aside.arrow-left {
 
 
 @media (max-width: 768px) {
+
+  .pp-hero {
+    flex-direction: column;
+    padding: 4vh 6vw;
+  }
+
+  .pp-hero-left {
+    width: 100%;
+  }
+
+  .pp-title {
+    font-size: 3rem;
+  }
+
+  .pp-img-duo {
+    flex-direction: column;
+    padding: 0 6vw 4vh 6vw;
+  }
+
+  .pp-img-trio {
+    flex-direction: column;
+    padding: 0 6vw 4vh 6vw;
+  }
+
+  .pp-img-trio-stack {
+    height: auto;
+  }
+
+  .pp-text-image {
+    flex-direction: column;
+    padding: 4vh 6vw;
+  }
+
+  .pp-image-text {
+    flex-direction: column;
+    padding: 4vh 6vw;
+  }
+
+  .pp-text-image-left {
+    width: 100%;
+  }
+
+  .pp-motives {
+    flex-direction: column;
+    padding: 4vh 6vw;
+  }
+
+  .pp-motives-right {
+    width: 100%;
+  }
+
+  .pp-motives-center {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .pp-motive-num {
+    font-size: 2rem;
+    width: auto;
+  }
+
+  .pp-details {
+    flex-direction: column;
+    padding: 4vh 6vw;
+  }
+
+  .pp-userflow {
+    padding: 4vh 6vw;
+  }
+
+  .pp-flow-row {
+    flex-direction: column;
+  }
 
 }
