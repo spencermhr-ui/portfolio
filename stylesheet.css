@@ -192,6 +192,13 @@ html, body {
   object-fit: contain;
 }
 
+.orbit-text {
+  font-family: "clubbed to life";
+  font-size: 1.02rem;
+  fill: white;
+  letter-spacing: .05rem;
+}
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
