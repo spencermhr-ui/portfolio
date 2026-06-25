@@ -1275,6 +1275,17 @@ aside.arrow-left {
     width: 100%;
   }
 
+  .pp-image-text .pp-text-image-right,
+  .pp-image-text .pp-text-image-left {
+    width: 100%;
+  }
+
+  .pp-img-standard,
+  .pp-img-standard-t,
+  .pp-img-large {
+    width: 100%;
+  }
+
   .pp-motives {
     flex-direction: column;
     padding: 4vh 6vw;
@@ -1291,7 +1302,7 @@ aside.arrow-left {
 
   .pp-motive-num {
     font-size: 2rem;
-    width: auto;
+    width: 2.5rem; 
   }
 
   .pp-details {
