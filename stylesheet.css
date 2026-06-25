@@ -94,7 +94,7 @@ html, body {
 
 @font-face {
   font-family: "noto sans";
-  src: url("/fonts/NotoSans-Regular.ttf") format("truetype");
+  src: url("/fonts/NotoSansSymbols2-Regular.ttf") format("truetype");
 }
 
 .btn-arrow {
