@@ -92,6 +92,14 @@ html, body {
   src: url("/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "noto sans";
+  src: url("/fonts/NotoSans-Regular.ttf") format("truetype");
+}
+
+.btn-arrow {
+  font-family: "noto sans", sans-serif;
+}
 
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ header ⋯⋅๑┈·✦
