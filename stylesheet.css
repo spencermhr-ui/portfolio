@@ -11,6 +11,7 @@ html, body {
   position: relative;
 }
 
+
 /* ✦ ───────────────────────────────────────────── ✦
          ✦·┈๑⋅⋯ background layers ⋯⋅๑┈·✦
 ✦ ───────────────────────────────────────────── ✦ */
@@ -890,6 +891,15 @@ aside.arrow-left {
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+
+  aside.arrow-left,
+    aside.arrow-right {
+      display: none;
+    }
+    
+}
+
 /* ── Hero ── */
 
 .pp-hero {
@@ -1262,7 +1272,7 @@ aside.arrow-left {
 
   .pp-hero {
     flex-direction: column;
-    padding: 4vh 6vw;
+    padding: 5vh 6vw 1vh 6vw;
   }
 
   .pp-hero-left {
@@ -1289,12 +1299,12 @@ aside.arrow-left {
 
   .pp-text-image {
     flex-direction: column;
-    padding: 4vh 6vw;
+    padding: 2vh 6vw;
   }
 
   .pp-image-text {
     flex-direction: column;
-    padding: 4vh 6vw;
+    padding: 2vh 6vw;
   }
 
   .pp-text-image-left {
@@ -1319,6 +1329,7 @@ aside.arrow-left {
 
   .pp-motives-right {
     width: 100%;
+    padding-top: 3vw;
   }
 
   .pp-motives-center {
@@ -1334,6 +1345,7 @@ aside.arrow-left {
   .pp-details {
     flex-direction: column;
     padding: 4vh 6vw;
+    gap: 10vw;
   }
 
   .pp-userflow {
@@ -1342,6 +1354,10 @@ aside.arrow-left {
 
   .pp-flow-row {
     flex-direction: column;
+  }
+
+  .pp-flow-item {
+    padding-bottom: 5vw;
   }
 
 }
