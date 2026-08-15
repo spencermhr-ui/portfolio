@@ -1361,3 +1361,45 @@ aside.arrow-left {
   }
 
 }
+
+
+/* ✦ ───────────────────────────────────────────── ✦
+         ✦·┈๑⋅⋯ illustration ⋯⋅๑┈·✦
+✦ ───────────────────────────────────────────── ✦ */
+
+
+.Rw{
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2vh 10vw;
+}
+
+.Col{
+  flex: 32%;
+  max-width: 33%;
+  padding: 10px 4px;
+  z-index: 1;
+}
+
+.Col img {
+    width: 100%;
+    margin: 4px auto;
+    vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+    .Col {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .Col {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
